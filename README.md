@@ -17,5 +17,8 @@ Configuración de Linux Mint para reforzar la seguridad del sistema, haciendo qu
 - Debe aparece una línea similar a esta: Bus 001 Device 007: ID 2ccf:0880 lo que significará que el sistema reconoce la llave u2f
 - El siguiente paso será instalar los paquetes pamu2fcfg y libpam-u2f usando: Sudo apt install pamu2fcfg libpam-u2f
 - Los paquetes disponibles en los repositorios de Ubuntu, suelen estar menos actualizados que los disponibles en el PPA de Yubico, por lo que si se desea disponer de la última versión, se pueden instalar de la siguiente forma:
-sudo add-apt-repository ppa:yubico/stable && sudo apt-get update
-sudo apt-get install libpam-u2f
+
+  sudo add-apt-repository ppa:yubico/stable && sudo apt-get update
+  sudo apt-get install libpam-u2f
+  
+  

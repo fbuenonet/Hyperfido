@@ -1,5 +1,5 @@
 # Hyperfido
-Configuración de Hyperfido U2F Securiry Key para usar en Linux Mint
+Configuración de Hyperfido U2F Securiry Key para usar en Linux Mint.
 
 Configuración de Firefox para usar Hyperfido Security Key con cuentas de Google, Dropbox, Github, Facebook, Twitter, etc.
 - Teclear en el omnibox de Firefox: about:config
@@ -21,7 +21,7 @@ Configuración de Linux Mint para reforzar la seguridad del sistema, haciendo qu
 - Debe aparece una línea similar a esta: 
   - Bus 001 Device 007: ID 2ccf:0880 Lo que significará que el sistema reconoce la llave u2f
 - El siguiente paso será instalar los paquetes pamu2fcfg y libpam-u2f usando: 
-  - Sudo apt install pamu2fcfg libpam-u2f
+  - sudo apt install pamu2fcfg libpam-u2f
 - Los paquetes disponibles en los repositorios de Ubuntu, suelen estar menos actualizados que los disponibles en el PPA de Yubico, por lo que si se desea disponer de la última versión, se pueden instalar de la siguiente forma:
 
   - sudo add-apt-repository ppa:yubico/stable
@@ -36,7 +36,7 @@ Configuración de Linux Mint para reforzar la seguridad del sistema, haciendo qu
 - Editamos el archivo /etc/pam.d/common-auth ejecutando: 
   - sudo pico /etc/pam.d/common-auth
 - Al final del archivo introducimos las siguiente línea:
-  - auth required pam_u2f.so nouserok authfile=/etc/u2f_keys cue
+  - auth required pam_u2f.so nouserok authfile=/etc/u2f_keys cue (Toda la información sobre la sintaxix de libpam-u2f, se encuentra disponible en https://github.com/Yubico/pam-u2f)
   
 Ahora reiniciamos el ordenador y tras introducir el usuario y la contraseña, pueden pasar varias cosas:
   1. Accedemos normalmente al sistema. Esto es síntoma de que algo de todo lo anterior ha fallado. Posiblemente no hemos guardado el archivo /etc/pam.d/common-auth o hemos accedido con un usuario distinto del que hemos creado la contraseña.

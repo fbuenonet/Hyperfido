@@ -14,7 +14,7 @@ Declaración de tipos de llaves ante el sistema operativo
 
 Configuración de Linux Mint para reforzar la seguridad del sistema, haciendo que sea necesario pinchar la llave u2f, tanto al hacer login como al ejecutar cualquier orden con sudo, además de teclear la contraseña. 
 
-# IMPORTANTE: Si el sistema de archivos está encriptado, no debemos seguir hasta asegurarnos de que los archivos que vamos a crear, se encontrarán en una partición no encriptada o de lo contrario no podremos acceder al sistema de ninguna manera.
+**IMPORTANTE: Si el sistema de archivos está encriptado, no debemos seguir hasta asegurarnos de que los archivos que vamos a crear, se encontrarán en una partición no encriptada o de lo contrario no podremos acceder al sistema de ninguna manera.**
 
 - En primer lugar habrá que comprobar que el sistema operativo reconoce la llave u2f. Para ello ejecutamos: 
   - lsub | grep 2ccf:0880

@@ -22,16 +22,16 @@ Configuración de Linux Mint para reforzar la seguridad del sistema, haciendo qu
   sudo apt update
   sudo apt install pamu2fcfg libpam-u2f
   
-  - A continuación crearemos la contraseña para la llave principal. Para ello ejecutamos:
-    pamu2fcfg | sudo tee /etc/u2f_keys (pulsaremos el botón de la llave cuando parpadee el led)
-  - Una buena idea es disponer de una regunda llave u2f como reserva, por si acaso perdiéramos la primera. Para añadir sucesivas contraseñas, retiraremos la llave principal y pincharemos la segunda llave. A contimuación ejecutamos:
-    pamu2fcfg -n | sudo tee -a /etc/u2f_keys (pulsaremos el botón de la llave cuando parpadee el led)
-  - Ahora vamos a forzar que sea necesario introducir la llave y pulsar el botón cuando realicemos login o ejecutemos cualquier comando con sudo. Es importante quitar la llave del puerto USB y la tenemos pinchada.
-  - Editamos el archivo /etc/pam.d/common-auth ejecutando: sudo pico /etc/pam.d/common-auth
-  - Al final del archivo introducimos las siguiente línea:
-    auth required pam_u2f.so nouserok authfile=/etc/u2f_keys cue
+- A continuación crearemos la contraseña para la llave principal. Para ello ejecutamos:
+  pamu2fcfg | sudo tee /etc/u2f_keys (pulsaremos el botón de la llave cuando parpadee el led)
+- Una buena idea es disponer de una regunda llave u2f como reserva, por si acaso perdiéramos la primera. Para añadir sucesivas contraseñas, retiraremos la llave principal y pincharemos la segunda llave. A contimuación ejecutamos:
+  pamu2fcfg -n | sudo tee -a /etc/u2f_keys (pulsaremos el botón de la llave cuando parpadee el led)
+- Ahora vamos a forzar que sea necesario introducir la llave y pulsar el botón cuando realicemos login o ejecutemos cualquier comando con sudo. Es importante quitar la llave del puerto USB y la tenemos pinchada.
+- Editamos el archivo /etc/pam.d/common-auth ejecutando: sudo pico /etc/pam.d/common-auth
+- Al final del archivo introducimos las siguiente línea:
+  auth required pam_u2f.so nouserok authfile=/etc/u2f_keys cue
   
-  Ahora reiniciamos el ordenador y tras introducir el usuario y la contraseña, pueden pasar varias cosas:
-    1. Accedemos normalmente al sistema. Esto es síntoma de que algo de todo lo anterior ha fallado. Posiblemente no hemos guardado el archivo /etc/pam.d/common-auth o hemos accedido con un usuario distinto del que hemos creado la contraseña.
-    2. El sistema nos dice que la contraseña no es válida. Lo más probable es que la llave 2uf no esté pinchada.
-    3. El sistema nos dice: "Please touch the device". Es la situación normal. Debemos pulsar el botón de la llave 2uf y acederemos al sistema.
+Ahora reiniciamos el ordenador y tras introducir el usuario y la contraseña, pueden pasar varias cosas:
+  1. Accedemos normalmente al sistema. Esto es síntoma de que algo de todo lo anterior ha fallado. Posiblemente no hemos guardado el archivo /etc/pam.d/common-auth o hemos accedido con un usuario distinto del que hemos creado la contraseña.
+  2. El sistema nos dice que la contraseña no es válida. Lo más probable es que la llave 2uf no esté pinchada.
+  3. El sistema nos dice: "Please touch the device". Es la situación normal. Debemos pulsar el botón de la llave 2uf y ya habremos accedido al sistema.

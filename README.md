@@ -36,7 +36,7 @@ Configuración de Linux Mint para reforzar la seguridad del sistema, haciendo qu
 - Editamos el archivo /etc/pam.d/common-auth ejecutando: 
   - sudo pico /etc/pam.d/common-auth
 - Al final del archivo introducimos las siguiente línea:
-  - auth required pam_u2f.so nouserok authfile=/etc/u2f_keys cue (Toda la información sobre la sintaxix de libpam-u2f, se encuentra disponible en https://github.com/Yubico/pam-u2f)
+  - auth required pam_u2f.so nouserok authfile=/etc/u2f_keys cue (Toda la información sobre la sintaxis de libpam-u2f, se encuentra disponible en https://github.com/Yubico/pam-u2f)
   
 Ahora reiniciamos el ordenador y tras introducir el usuario y la contraseña, pueden pasar varias cosas:
   1. Accedemos normalmente al sistema. Esto es síntoma de que algo de todo lo anterior ha fallado. Posiblemente no hemos guardado el archivo /etc/pam.d/common-auth o hemos accedido con un usuario distinto del que hemos creado la contraseña.

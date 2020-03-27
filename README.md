@@ -44,3 +44,5 @@ Ahora reiniciamos el ordenador y tras introducir el usuario y la contraseña, pu
   3. El sistema nos dice: "Please touch the device". Es la situación normal. Debemos pulsar el botón de la llave u2f y ya habremos accedido al sistema.
 
 Si nos encontramos con que no es posible acceder al sistema y éste entra en un bucle pidiendo la contraseña y sin reconocer la que introducimos, el problema es que tenemos encriptado el sistema de archivos. En este caso, acabamos de perder todo el contenido del disco. Si estamos seguros de que el sistema de archivos no está encriptado y no podemos acceder al sistema, bastará con arrancar el ordenador con un LiveCD y comentar o eliminar la línea que introducimos en el archivo /etc/pam.d/common-auth
+
+Si vamos aacceder al ordenador desde otro dispositivo remoto vía ssh, deberemor realizar algunas [operaciones adicionales](https://github.com/fbuenonet/ssh-u2f), ya que de lo contrario se nos pdirá que conectemos en este ordenador la llave U2F y que pulsemos el botón de ésta, algo que no nos será posible. 
